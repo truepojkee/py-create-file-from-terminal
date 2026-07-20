@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 
-def write_content(filepath):
+def write_content(filepath: str) -> None:
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -14,7 +14,8 @@ def write_content(filepath):
             break
         lines.append(user_input)
 
-    file_exists_with_content = os.path.exists(filepath) and os.path.getsize(filepath) > 0
+    file_exists_with_content = (os.path.exists(filepath)
+                                and os.path.getsize(filepath) > 0)
 
     with open(filepath, "a") as f:
         if file_exists_with_content:
